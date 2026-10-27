@@ -1,68 +1,89 @@
 <!doctype html>
 <html lang="de" data-theme="dark">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Mein Lernprojekt für moderne Webdesigns und Funktionen.">
-<title>Meine Website – Webdesign-Labor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Bewerte Länder und entdecke das aktuelle Länder-Ranking.">
+<title>Länder-Ranking – Meine Website</title>
 <style>
-:root{--bg:#09111f;--panel:rgba(20,32,52,.82);--text:#f5f7ff;--muted:#b8c5da;--line:rgba(160,185,225,.2);--a:#8b5cf6;--b:#35a7ff}
-html[data-theme=light]{--bg:#f2f6fc;--panel:rgba(255,255,255,.9);--text:#172238;--muted:#52627b;--line:rgba(39,58,89,.17);--a:#7046e8;--b:#087fce}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#6359b522,transparent 35%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;transition:background .25s,color .25s}
-.container{width:min(1120px,calc(100% - 36px));margin:auto}a{color:inherit;text-decoration:none}
-header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;padding:12px 0}.brand{font-weight:800;display:flex;align-items:center;gap:10px}.mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(130deg,var(--a),var(--b));color:white}
-nav{display:flex;gap:22px;flex-wrap:wrap}nav a{color:var(--muted);font-size:.94rem}nav a:hover,nav a.active{color:var(--text)}
-button,.btn{font:inherit;cursor:pointer;border-radius:12px;padding:12px 18px;border:1px solid var(--line);color:var(--text);background:var(--panel);transition:transform .2s,border-color .2s}button:hover,.btn:hover{transform:translateY(-2px);border-color:var(--b)}
-.theme{border-radius:99px;padding:8px 12px}.hero{padding:85px 0 56px;background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 88%,transparent) 48%,transparent),radial-gradient(ellipse at 80% 25%,#f7a17c55,transparent 27%),linear-gradient(145deg,#17294a,#514b78 60%,#c47a78)}
-html[data-theme=light] .hero{background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 88%,transparent) 48%,transparent),radial-gradient(ellipse at 80% 25%,#f7a17c66,transparent 27%),linear-gradient(145deg,#cbd9ef,#e3b6bd 60%,#ffc58a)}
-.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:42px;align-items:center}.eyebrow,.label{font-size:.78rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--b)}
-h1{font-size:clamp(2.7rem,6.5vw,5.1rem);line-height:1;letter-spacing:-.06em;margin:17px 0} .gradient{background:linear-gradient(100deg,var(--a),var(--b));color:transparent;background-clip:text;-webkit-background-clip:text}
-.lead{max-width:620px;color:var(--muted);font-size:1.12rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn.primary{color:white;border:0;background:linear-gradient(105deg,var(--a),var(--b));box-shadow:0 10px 28px #5964d844}
-.clock{padding:25px;text-align:center;border:1px solid #ffffff55;border-radius:20px;background:#101a2c77;backdrop-filter:blur(14px)}html[data-theme=light] .clock{background:#ffffff88}.clock small{color:var(--muted)}#time{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;font-variant-numeric:tabular-nums}#date{color:var(--muted);font-size:.9rem}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:-4px}.card{display:flex;gap:15px;padding:22px;border:1px solid var(--line);border-radius:17px;background:var(--panel);box-shadow:0 18px 48px #0002;transition:transform .22s,border-color .22s}.card:hover{transform:translateY(-6px);border-color:var(--b)}.icon{flex:0 0 48px;height:48px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(130deg,var(--a),var(--b));color:white;font-size:1.25rem}.card:nth-child(2) .icon{background:linear-gradient(130deg,#0da99d,#40d8c4)}.card:nth-child(3) .icon{background:linear-gradient(130deg,#b044a7,#e57cb8)}.card h2{font-size:1.05rem;margin:0 0 6px}.card p,.about p{margin:0;color:var(--muted);font-size:.93rem}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);margin:34px auto 62px;padding:22px 0;border-block:1px solid var(--line)}.stat{text-align:center;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat strong{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.88rem}
-.about{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;align-items:center;padding-bottom:75px}.visual{min-height:235px;display:grid;place-items:center;border:1px solid var(--line);border-radius:20px;background:radial-gradient(circle at 70% 25%,#35a7ff44,transparent 35%),var(--panel);padding:25px}.laptop{width:90%;transform:rotate(-4deg);filter:drop-shadow(0 20px 20px #0004)}.screen{aspect-ratio:16/10;border:8px solid #1d293a;border-bottom-width:12px;border-radius:12px 12px 4px 4px;padding:12px;background:linear-gradient(135deg,#202c4b,#8055b7 55%,#efaa84)}.line{height:7px;width:65%;margin:8px 0;border-radius:5px;background:#ffffffbb}.line.short{width:40%}.screenbutton{height:17px;width:42%;margin-top:18px;border-radius:5px;background:#8de5d0}.base{height:12px;margin:0 -15px;border-radius:2px 2px 12px 12px;background:linear-gradient(#aab5c6,#566274)}
-h2.section-title{font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.1;letter-spacing:-.04em;margin:10px 0 14px}.benefits{display:grid;gap:17px}.benefit{display:flex;gap:12px}.benefit .icon{width:38px;height:38px;flex-basis:38px;border-radius:50%;font-size:1rem}.benefit h3{margin:0 0 3px;font-size:.95rem}.benefit p{font-size:.85rem}
-footer{display:flex;justify-content:space-between;gap:18px;padding:24px 0 32px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}.toast{position:fixed;right:20px;bottom:20px;z-index:10;max-width:calc(100% - 40px);padding:15px 18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 15px 40px #0003;opacity:0;transform:translateY(140%);transition:.25s}.toast.show{opacity:1;transform:translateY(0)}
-@media(max-width:850px){.hero-grid{grid-template-columns:1fr}.clock{max-width:330px}.cards{grid-template-columns:1fr}.about{grid-template-columns:1fr 1fr}.visual{grid-row:span 2}.nav{gap:14px}}
-@media(max-width:580px){.container{width:calc(100% - 28px)}.nav{align-items:flex-start}.nav nav{order:3;width:100%;gap:15px}.theme{margin-left:auto}.hero{padding:55px 0}.actions .btn{width:100%;text-align:center}.stats{grid-template-columns:1fr 1fr;gap:18px}.stat:nth-child(2){border:0}.about{grid-template-columns:1fr}.visual{grid-row:auto}.footer,footer{flex-direction:column}}
-@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+:root{--bg:#09111f;--panel:#121e30;--panel2:#17253a;--text:#f4f7ff;--muted:#b4c2d9;--line:#ffffff1c;--accent:#8b5cf6;--blue:#35a7ff;--good:#25c79a;--bad:#ff6b81}
+html[data-theme=light]{--bg:#f2f6fc;--panel:#fff;--panel2:#eaf0f9;--text:#172238;--muted:#52627b;--line:#263b5a22;--accent:#7046e8;--blue:#087fce}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 85% 0%,#6c58bb20,transparent 35%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;transition:background .2s,color .2s}
+.container{width:min(1080px,calc(100% - 32px));margin:auto}header{border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 90%,transparent);backdrop-filter:blur(14px);position:sticky;top:0;z-index:5}.nav{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;text-decoration:none;color:var(--text)}.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:11px;background:linear-gradient(130deg,var(--accent),var(--blue));color:white}nav{display:flex;gap:22px}nav a{color:var(--muted);text-decoration:none}nav a:hover{color:var(--text)}button{font:inherit;cursor:pointer}
+.theme{border:1px solid var(--line);border-radius:99px;background:var(--panel);color:var(--text);padding:8px 12px}
+.hero{padding:66px 0 38px;background:linear-gradient(120deg,#514b7833,transparent 70%)}.eyebrow{font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}h1{font-size:clamp(2.4rem,6vw,4.5rem);line-height:1.03;letter-spacing:-.055em;margin:14px 0}.gradient{background:linear-gradient(100deg,var(--accent),var(--blue));color:transparent;background-clip:text;-webkit-background-clip:text}.intro{max-width:700px;color:var(--muted);font-size:1.08rem;margin:0}
+main{padding-bottom:70px}.toolbar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:22px 0}.toolbar p{margin:0;color:var(--muted);font-size:.92rem}.sort{border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--text);padding:10px 12px}
+.ranking{display:grid;gap:14px}.country{display:grid;grid-template-columns:62px minmax(0,1fr) auto;align-items:center;gap:18px;padding:18px;border:1px solid var(--line);border-radius:18px;background:var(--panel);box-shadow:0 14px 40px #00000012;transition:transform .2s,border-color .2s,background .2s;animation:appear .35s ease both}.country:hover{transform:translateY(-2px);border-color:color-mix(in srgb,var(--blue) 55%,var(--line))}.rank{font-size:1.2rem;font-weight:850;color:var(--muted);text-align:center}.flag{font-size:2.65rem;line-height:1;filter:drop-shadow(0 4px 5px #0002)}.country-info{min-width:0}.country-title{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.country h2{font-size:1.12rem;margin:0}.badge{font-size:.72rem;color:var(--blue);background:color-mix(in srgb,var(--blue) 13%,transparent);border-radius:99px;padding:3px 8px}.scoreline{display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:.86rem;margin-top:5px}.score{font-weight:800;color:var(--text)}.meter{height:5px;max-width:320px;margin-top:9px;border-radius:99px;background:var(--panel2);overflow:hidden}.meter span{display:block;height:100%;width:50%;background:linear-gradient(90deg,var(--accent),var(--blue));border-radius:99px;transition:width .3s}.vote-actions{display:flex;gap:9px}.vote{min-width:54px;border:1px solid var(--line);border-radius:12px;background:var(--panel2);color:var(--text);padding:10px 12px;font-size:1.05rem;transition:transform .15s,border-color .15s}.vote:hover{transform:translateY(-2px)}.vote.up:hover,.vote.up.selected{border-color:var(--good);background:color-mix(in srgb,var(--good) 14%,var(--panel))}.vote.down:hover,.vote.down.selected{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 14%,var(--panel))}.vote:disabled{opacity:.5;cursor:not-allowed}
+.note{margin-top:18px;padding:14px 16px;border:1px solid var(--line);border-radius:13px;color:var(--muted);font-size:.86rem;background:var(--panel2)}.empty{padding:28px;text-align:center;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:24px 0 32px;color:var(--muted);font-size:.86rem;display:flex;justify-content:space-between;gap:12px}
+.toast{position:fixed;right:18px;bottom:18px;z-index:10;padding:13px 17px;max-width:calc(100% - 36px);background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:0 15px 40px #0003;opacity:0;transform:translateY(120%);transition:.2s}.toast.show{opacity:1;transform:translateY(0)}
+@keyframes appear{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:650px){.nav{flex-wrap:wrap;padding:12px 0}.nav nav{order:3;width:100%;gap:16px;overflow:auto;padding-bottom:6px}.hero{padding-top:48px}.country{grid-template-columns:44px minmax(0,1fr);gap:12px;padding:14px}.flag{font-size:2.1rem}.rank{grid-row:1}.country-info{grid-column:2}.vote-actions{grid-column:2}.vote{flex:1}.meter{max-width:100%}footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
 <header><div class="container nav">
 <a class="brand" href="#start"><span class="mark">△</span> Meine Website</a>
-<nav aria-label="Hauptnavigation"><a class="active" href="#start">Start</a><a href="#ueber">Über mich</a><a href="#projekte">Projekte</a><a href="#funktionen">Funktionen</a><a href="#kontakt">Kontakt</a></nav>
-<button class="theme" id="theme" aria-label="Farbschema wechseln" aria-pressed="false">☀　◉　☾</button>
+<nav aria-label="Hauptnavigation"><a href="#start">Start</a><a href="#ranking">Länder-Ranking</a><a href="#info">So funktioniert's</a></nav>
+<button class="theme" id="theme" type="button" aria-label="Farbschema wechseln">☀ / ☾</button>
 </div></header>
-<main>
-<section class="hero" id="start"><div class="container hero-grid"><div>
-<div class="eyebrow">Ideen. Lernen. Umsetzen.</div><h1>Willkommen auf<br>meiner <span class="gradient">Testseite.</span></h1>
-<p class="lead">Hier experimentiere ich mit modernen Webdesigns, interaktiven Elementen und neuen Funktionen. Diese Seite ist mein persönliches Lernprojekt.</p>
-<div class="actions"><a class="btn primary" href="#ueber">↗ Mehr erfahren</a><a class="btn" href="#projekte">▷ Projekte ansehen</a></div>
-</div><aside class="clock"><div style="font-size:1.5rem">◷</div><small>Aktuelle Uhrzeit</small><div id="time">--:--:--</div><div id="date">Datum wird geladen …</div></aside></div></section>
-<section class="container cards" id="funktionen">
-<article class="card"><div class="icon">◉</div><div><h2>Modernes Design</h2><p>Wechsle zwischen hellem und dunklem Design und entdecke verschiedene Farblooks.</p></div></article>
-<article class="card"><div class="icon">&lt;/&gt;</div><div><h2>Interaktive Elemente</h2><p>Teste Animationen, Hover-Effekte und weitere Funktionen direkt im Browser.</p></div></article>
-<article class="card"><div class="icon">⚙</div><div><h2>Lernplattform</h2><p>Ich nutze diese Seite, um moderne Webtechnologien Schritt für Schritt kennenzulernen.</p></div></article>
-</section>
-<section class="container stats" id="projekte"><div class="stat"><strong>1+</strong><span>Testbesucher</span></div><div class="stat"><strong>3+</strong><span>Beispielbereiche</span></div><div class="stat"><strong>100%</strong><span>Motivation</span></div><div class="stat"><strong>∞</strong><span>Möglichkeiten</span></div></section>
-<section class="container about" id="ueber">
-<div class="visual" aria-label="Illustration eines Laptop-Bildschirms"><div class="laptop"><div class="screen"><div class="line"></div><div class="line short"></div><div class="line"></div><div class="screenbutton"></div></div><div class="base"></div></div></div>
-<div><div class="label">Über dieses Projekt</div><h2 class="section-title">Ein Ort zum <span class="gradient">Ausprobieren.</span></h2><p>Auf dieser Website teste ich verschiedene Designs, Funktionen und Layout-Ideen. Schritt für Schritt erweitere ich die Seite und lerne dabei moderne Webentwicklung kennen.</p><p style="margin-top:20px"><button class="btn primary" id="demo">Interaktion testen ↗</button></p></div>
-<div class="benefits"><div class="benefit"><div class="icon">✦</div><div><h3>Neue Ideen</h3><p>Ich probiere verschiedene Konzepte aus.</p></div></div><div class="benefit"><div class="icon">▥</div><div><h3>Sichtbare Fortschritte</h3><p>Jede Änderung wird nach dem Deployment online sichtbar.</p></div></div><div class="benefit"><div class="icon">♡</div><div><h3>Vielseitig einsetzbar</h3><p>Von einfachen Designs bis zu komplexeren Funktionen.</p></div></div></div>
-</section>
+<section class="hero" id="start"><div class="container">
+<div class="eyebrow">Community-Ranking · Demo</div>
+<h1>Welche Länder liegen <span class="gradient">vorn?</span></h1>
+<p class="intro">Gib den Ländern deine Stimme. Mit einem Daumen hoch steigt die Bewertung, mit einem Daumen runter sinkt sie. Das Ranking sortiert sich automatisch nach dem Punktestand.</p>
+</div></section>
+<main class="container" id="ranking">
+<div class="toolbar"><p id="summary">Länder werden geladen …</p><label>Sortieren: <select class="sort" id="sort"><option value="score">Höchste Bewertung</option><option value="name">Ländername A–Z</option><option value="votes">Meiste Stimmen</option></select></label></div>
+<div class="ranking" id="rankingList" aria-live="polite"></div>
+<div class="note" id="info"><strong>Hinweis zur Demo:</strong> Deine Stimme wird in diesem Browser gespeichert. Andere Besucher sehen ihre eigenen lokalen Bewertungen. Für ein gemeinsames, öffentliches Ranking brauchen wir später eine Datenbank bzw. einen Backend-Dienst.</div>
 </main>
-<footer class="container" id="kontakt"><span>© <span id="year"></span> Mein Webprojekt</span><span>Erstellt zum Lernen und Experimentieren</span></footer>
+<footer class="container"><span>© <span id="year"></span> Mein Webprojekt</span><span>Interaktive Länder-Ranking-Demo</span></footer>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
-const root=document.documentElement,themeBtn=document.getElementById('theme');
-const saved=localStorage.getItem('homepage-theme');if(saved==='light'||saved==='dark')root.dataset.theme=saved;
-themeBtn.setAttribute('aria-pressed',String(root.dataset.theme==='light'));
-themeBtn.addEventListener('click',()=>{const next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;localStorage.setItem('homepage-theme',next);themeBtn.setAttribute('aria-pressed',String(next==='light'));toast(next==='light'?'Hellmodus aktiviert.':'Dunkelmodus aktiviert.')});
-function clock(){const n=new Date();document.getElementById('time').textContent=n.toLocaleTimeString('de-DE');document.getElementById('date').textContent=n.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});document.getElementById('year').textContent=n.getFullYear()}clock();setInterval(clock,1000);
-let timer;function toast(message){const t=document.getElementById('toast');t.textContent=message;t.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>t.classList.remove('show'),2800)}
-document.getElementById('demo').addEventListener('click',()=>toast('Funktioniert! Du hast eine JavaScript-Interaktion ausgelöst.'));
-const links=[...document.querySelectorAll('nav a')];document.querySelectorAll('main section[id]').forEach(section=>new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-30% 0px -60% 0px'}).observe(section));
+const countries=[
+{id:'de',name:'Deutschland',flag:'🇩🇪',score:12,up:18,down:6},
+{id:'us',name:'USA',flag:'🇺🇸',score:8,up:14,down:6},
+{id:'fr',name:'Frankreich',flag:'🇫🇷',score:3,up:9,down:6},
+{id:'jp',name:'Japan',flag:'🇯🇵',score:6,up:11,down:5},
+{id:'it',name:'Italien',flag:'🇮🇹',score:2,up:7,down:5},
+{id:'br',name:'Brasilien',flag:'🇧🇷',score:1,up:6,down:5}
+];
+const storageKey='country-ranking-votes-v1';
+let myVotes={};
+try{myVotes=JSON.parse(localStorage.getItem(storageKey)||'{}')||{}}catch(e){myVotes={}}
+const list=document.getElementById('rankingList'),sort=document.getElementById('sort');
+function getScore(c){return c.score+(c.localDelta||0)}
+function render(){
+ const mode=sort.value;
+ const ordered=[...countries].sort((a,b)=>mode==='name'?a.name.localeCompare(b.name,'de'):mode==='votes'?(b.up+b.down)-(a.up+a.down):getScore(b)-getScore(a));
+ list.innerHTML='';
+ const max=Math.max(1,...ordered.map(c=>Math.abs(getScore(c))));
+ ordered.forEach((c,index)=>{
+  const vote=myVotes[c.id]||0, score=getScore(c), total=c.up+c.down;
+  const el=document.createElement('article');el.className='country';
+  el.innerHTML=`<div class="rank">#${index+1}</div><div class="flag" aria-hidden="true">${c.flag}</div><div class="country-info"><div class="country-title"><h2>${c.name}</h2>${index===0&&mode==='score'?'<span class="badge">Aktuell auf Platz 1</span>':''}</div><div class="scoreline"><span class="score">${score>0?'+':''}${score} Punkte</span><span>${total} Beispielstimmen</span></div><div class="meter"><span style="width:${Math.max(5,Math.min(100,((score+max)/(2*max))*100))}%"></span></div></div><div class="vote-actions"><button class="vote up ${vote===1?'selected':''}" data-id="${c.id}" data-vote="1" aria-label="Daumen hoch für ${c.name}" ${vote===1?'disabled':''}>👍</button><button class="vote down ${vote===-1?'selected':''}" data-id="${c.id}" data-vote="-1" aria-label="Daumen runter für ${c.name}" ${vote===-1?'disabled':''}>👎</button></div>`;
+  list.appendChild(el);
+ });
+ document.getElementById('summary').textContent=`${countries.length} Länder · Demo-Ranking · sortiert nach ${mode==='score'?'Bewertung':mode==='name'?'Ländernamen':'Stimmen'}`;
+}
+function vote(id,value){
+ const country=countries.find(c=>c.id===id);if(!country)return;
+ if(myVotes[id]){showToast('Du hast dieses Land bereits bewertet.');return;}
+ myVotes[id]=value;
+ country.localDelta=(country.localDelta||0)+value;
+ country.up+=value===1?1:0;country.down+=value===-1?1:0;
+ try{localStorage.setItem(storageKey,JSON.stringify(myVotes))}catch(e){}
+ render();showToast(`Stimme für ${country.name} gespeichert.`);
+}
+list.addEventListener('click',e=>{const b=e.target.closest('button[data-id]');if(b)vote(b.dataset.id,Number(b.dataset.vote))});
+sort.addEventListener('change',render);
+document.getElementById('year').textContent=new Date().getFullYear();
+const root=document.documentElement,theme=document.getElementById('theme');
+try{const t=localStorage.getItem('homepage-theme');if(t==='light'||t==='dark')root.dataset.theme=t}catch(e){}
+theme.addEventListener('click',()=>{root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';try{localStorage.setItem('homepage-theme',root.dataset.theme)}catch(e){}});
+let toastTimer;function showToast(text){const el=document.getElementById('toast');el.textContent=text;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2500)}
+render();
 </script>
-</body></html>
+</body>
+</html>
