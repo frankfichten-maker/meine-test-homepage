@@ -25,3 +25,7 @@ Achte auf gültiges JSON: doppelte Anführungszeichen verwenden und keine Kommas
 Die Webseite lädt die Ausgangsdaten aus der JSON-Datei. Bewertungen werden weiterhin nur im Browser des jeweiligen Besuchers gespeichert (`localStorage`). Besucher können die Datei auf GitHub nicht direkt ändern; dadurch werden Stimmen noch nicht gemeinsam für alle gespeichert.
 
 Wenn du die Webseite direkt als lokale Datei öffnest (`file://`), kann der Browser das Laden der JSON-Datei blockieren. Teste daher über Vercel oder einen lokalen Webserver.
+
+
+## Balkenberechnung
+Die Balken werden unabhängig pro Land berechnet. Eine Bewertung für Japan verändert nicht mehr die Balkenbreite der anderen Länder.
