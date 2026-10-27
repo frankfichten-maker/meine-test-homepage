@@ -1,275 +1,68 @@
-<!DOCTYPE html>
-<html lang="de">
+<!doctype html>
+<html lang="de" data-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Eine moderne Test-Startseite für mein erstes Webprojekt.">
-  <title>Meine Test-Startseite</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --background: #0b1020;
-      --panel: rgba(255, 255, 255, 0.07);
-      --text: #f4f7fb;
-      --muted: #b6c1d3;
-      --accent: #76e4c2;
-      --accent-2: #8ba8ff;
-    }
-
-    * { box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse at 15% 10%, rgba(91, 120, 255, .22), transparent 35%),
-        radial-gradient(ellipse at 85% 25%, rgba(65, 220, 180, .13), transparent 32%),
-        var(--background);
-    }
-
-    a { color: inherit; }
-
-    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
-
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 24px;
-      padding: 25px 0;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      font-weight: 750;
-      letter-spacing: .2px;
-    }
-
-    .brand-mark {
-      display: grid;
-      place-items: center;
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      color: #08131a;
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      font-weight: 900;
-    }
-
-    nav { display: flex; gap: 25px; }
-    nav a { color: var(--muted); text-decoration: none; font-size: .95rem; }
-    nav a:hover { color: var(--text); }
-
-    main {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      align-items: center;
-      gap: 55px;
-      padding: 95px 0 85px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: var(--accent);
-      font-size: .78rem;
-      font-weight: 750;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 18px var(--accent);
-    }
-
-    h1 {
-      max-width: 700px;
-      margin: 20px 0;
-      font-size: clamp(2.8rem, 6.7vw, 5.4rem);
-      line-height: .99;
-      letter-spacing: -.065em;
-    }
-
-    h1 span {
-      color: transparent;
-      background: linear-gradient(100deg, var(--accent), var(--accent-2));
-      background-clip: text;
-      -webkit-background-clip: text;
-    }
-
-    .intro {
-      max-width: 570px;
-      color: var(--muted);
-      font-size: 1.1rem;
-      line-height: 1.8;
-    }
-
-    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
-
-    .button {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 48px;
-      padding: 0 19px;
-      border: 1px solid rgba(255,255,255,.18);
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform .2s ease, border-color .2s ease;
-    }
-
-    .button:hover { transform: translateY(-2px); border-color: var(--accent); }
-    .button.primary { color: #07131a; background: var(--accent); border-color: transparent; }
-
-    .preview {
-      position: relative;
-      padding: 25px;
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: 25px;
-      background: var(--panel);
-      box-shadow: 0 25px 90px rgba(0,0,0,.25);
-      backdrop-filter: blur(16px);
-    }
-
-    .preview-top { display: flex; gap: 7px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,.1); }
-    .window-dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.35); }
-    .preview-label { margin: 23px 0 10px; color: var(--muted); font-size: .82rem; }
-    .preview h2 { margin: 0; font-size: 1.55rem; }
-    .preview-copy { color: var(--muted); line-height: 1.7; font-size: .94rem; }
-
-    .progress {
-      height: 8px;
-      margin: 23px 0 10px;
-      overflow: hidden;
-      border-radius: 99px;
-      background: rgba(255,255,255,.1);
-    }
-
-    .progress span {
-      display: block;
-      width: 72%;
-      height: 100%;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--accent), var(--accent-2));
-    }
-
-    .status { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: .82rem; }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 17px;
-      padding-bottom: 75px;
-    }
-
-    .feature {
-      padding: 23px;
-      border: 1px solid rgba(255,255,255,.11);
-      border-radius: 18px;
-      background: rgba(255,255,255,.035);
-    }
-
-    .feature-icon { font-size: 1.35rem; }
-    .feature h3 { margin: 15px 0 8px; }
-    .feature p { margin: 0; color: var(--muted); line-height: 1.65; font-size: .93rem; }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 25px 0 35px;
-      border-top: 1px solid rgba(255,255,255,.12);
-      color: var(--muted);
-      font-size: .86rem;
-    }
-
-    @media (max-width: 760px) {
-      header { align-items: flex-start; flex-direction: column; }
-      nav { flex-wrap: wrap; gap: 18px; }
-      main { grid-template-columns: 1fr; gap: 35px; padding: 65px 0; }
-      .features { grid-template-columns: 1fr; padding-bottom: 50px; }
-      footer { flex-direction: column; }
-    }
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Mein Lernprojekt für moderne Webdesigns und Funktionen.">
+<title>Meine Website – Webdesign-Labor</title>
+<style>
+:root{--bg:#09111f;--panel:rgba(20,32,52,.82);--text:#f5f7ff;--muted:#b8c5da;--line:rgba(160,185,225,.2);--a:#8b5cf6;--b:#35a7ff}
+html[data-theme=light]{--bg:#f2f6fc;--panel:rgba(255,255,255,.9);--text:#172238;--muted:#52627b;--line:rgba(39,58,89,.17);--a:#7046e8;--b:#087fce}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#6359b522,transparent 35%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;transition:background .25s,color .25s}
+.container{width:min(1120px,calc(100% - 36px));margin:auto}a{color:inherit;text-decoration:none}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;padding:12px 0}.brand{font-weight:800;display:flex;align-items:center;gap:10px}.mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:linear-gradient(130deg,var(--a),var(--b));color:white}
+nav{display:flex;gap:22px;flex-wrap:wrap}nav a{color:var(--muted);font-size:.94rem}nav a:hover,nav a.active{color:var(--text)}
+button,.btn{font:inherit;cursor:pointer;border-radius:12px;padding:12px 18px;border:1px solid var(--line);color:var(--text);background:var(--panel);transition:transform .2s,border-color .2s}button:hover,.btn:hover{transform:translateY(-2px);border-color:var(--b)}
+.theme{border-radius:99px;padding:8px 12px}.hero{padding:85px 0 56px;background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 88%,transparent) 48%,transparent),radial-gradient(ellipse at 80% 25%,#f7a17c55,transparent 27%),linear-gradient(145deg,#17294a,#514b78 60%,#c47a78)}
+html[data-theme=light] .hero{background:linear-gradient(90deg,var(--bg) 0%,color-mix(in srgb,var(--bg) 88%,transparent) 48%,transparent),radial-gradient(ellipse at 80% 25%,#f7a17c66,transparent 27%),linear-gradient(145deg,#cbd9ef,#e3b6bd 60%,#ffc58a)}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:42px;align-items:center}.eyebrow,.label{font-size:.78rem;font-weight:800;letter-spacing:.17em;text-transform:uppercase;color:var(--b)}
+h1{font-size:clamp(2.7rem,6.5vw,5.1rem);line-height:1;letter-spacing:-.06em;margin:17px 0} .gradient{background:linear-gradient(100deg,var(--a),var(--b));color:transparent;background-clip:text;-webkit-background-clip:text}
+.lead{max-width:620px;color:var(--muted);font-size:1.12rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn.primary{color:white;border:0;background:linear-gradient(105deg,var(--a),var(--b));box-shadow:0 10px 28px #5964d844}
+.clock{padding:25px;text-align:center;border:1px solid #ffffff55;border-radius:20px;background:#101a2c77;backdrop-filter:blur(14px)}html[data-theme=light] .clock{background:#ffffff88}.clock small{color:var(--muted)}#time{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;font-variant-numeric:tabular-nums}#date{color:var(--muted);font-size:.9rem}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:17px;margin-top:-4px}.card{display:flex;gap:15px;padding:22px;border:1px solid var(--line);border-radius:17px;background:var(--panel);box-shadow:0 18px 48px #0002;transition:transform .22s,border-color .22s}.card:hover{transform:translateY(-6px);border-color:var(--b)}.icon{flex:0 0 48px;height:48px;display:grid;place-items:center;border-radius:14px;background:linear-gradient(130deg,var(--a),var(--b));color:white;font-size:1.25rem}.card:nth-child(2) .icon{background:linear-gradient(130deg,#0da99d,#40d8c4)}.card:nth-child(3) .icon{background:linear-gradient(130deg,#b044a7,#e57cb8)}.card h2{font-size:1.05rem;margin:0 0 6px}.card p,.about p{margin:0;color:var(--muted);font-size:.93rem}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin:34px auto 62px;padding:22px 0;border-block:1px solid var(--line)}.stat{text-align:center;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat strong{display:block;font-size:1.45rem}.stat span{color:var(--muted);font-size:.88rem}
+.about{display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px;align-items:center;padding-bottom:75px}.visual{min-height:235px;display:grid;place-items:center;border:1px solid var(--line);border-radius:20px;background:radial-gradient(circle at 70% 25%,#35a7ff44,transparent 35%),var(--panel);padding:25px}.laptop{width:90%;transform:rotate(-4deg);filter:drop-shadow(0 20px 20px #0004)}.screen{aspect-ratio:16/10;border:8px solid #1d293a;border-bottom-width:12px;border-radius:12px 12px 4px 4px;padding:12px;background:linear-gradient(135deg,#202c4b,#8055b7 55%,#efaa84)}.line{height:7px;width:65%;margin:8px 0;border-radius:5px;background:#ffffffbb}.line.short{width:40%}.screenbutton{height:17px;width:42%;margin-top:18px;border-radius:5px;background:#8de5d0}.base{height:12px;margin:0 -15px;border-radius:2px 2px 12px 12px;background:linear-gradient(#aab5c6,#566274)}
+h2.section-title{font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.1;letter-spacing:-.04em;margin:10px 0 14px}.benefits{display:grid;gap:17px}.benefit{display:flex;gap:12px}.benefit .icon{width:38px;height:38px;flex-basis:38px;border-radius:50%;font-size:1rem}.benefit h3{margin:0 0 3px;font-size:.95rem}.benefit p{font-size:.85rem}
+footer{display:flex;justify-content:space-between;gap:18px;padding:24px 0 32px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}.toast{position:fixed;right:20px;bottom:20px;z-index:10;max-width:calc(100% - 40px);padding:15px 18px;background:var(--panel);border:1px solid var(--line);border-radius:14px;box-shadow:0 15px 40px #0003;opacity:0;transform:translateY(140%);transition:.25s}.toast.show{opacity:1;transform:translateY(0)}
+@media(max-width:850px){.hero-grid{grid-template-columns:1fr}.clock{max-width:330px}.cards{grid-template-columns:1fr}.about{grid-template-columns:1fr 1fr}.visual{grid-row:span 2}.nav{gap:14px}}
+@media(max-width:580px){.container{width:calc(100% - 28px)}.nav{align-items:flex-start}.nav nav{order:3;width:100%;gap:15px}.theme{margin-left:auto}.hero{padding:55px 0}.actions .btn{width:100%;text-align:center}.stats{grid-template-columns:1fr 1fr;gap:18px}.stat:nth-child(2){border:0}.about{grid-template-columns:1fr}.visual{grid-row:auto}.footer,footer{flex-direction:column}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <a class="brand" href="#start" aria-label="Zur Startseite" style="text-decoration:none">
-        <span class="brand-mark">M</span>
-        <span>Mein Webprojekt</span>
-      </a>
-      <nav aria-label="Hauptnavigation">
-        <a href="#start">Start</a>
-        <a href="#funktionen">Funktionen</a>
-        <a href="#kontakt">Kontakt</a>
-      </nav>
-    </header>
-
-    <main id="start">
-      <section>
-        <div class="eyebrow"><span class="dot"></span> Online · Testversion 1.0</div>
-        <h1>Eine Idee.<br><span>Neue Möglichkeiten.</span></h1>
-        <p class="intro">
-          Willkommen auf meiner ersten Test-Homepage. Hier probiere ich moderne
-          Webtechnologien aus und entwickle meine eigene Website Schritt für Schritt weiter.
-        </p>
-        <div class="actions">
-          <a class="button primary" href="#funktionen">Seite entdecken ↘</a>
-          <a class="button" href="#kontakt">Kontaktbereich</a>
-        </div>
-      </section>
-
-      <aside class="preview" aria-label="Projektstatus">
-        <div class="preview-top">
-          <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
-        </div>
-        <p class="preview-label">MEIN ERSTES WEBPROJEKT</p>
-        <h2>Der Anfang ist gemacht.</h2>
-        <p class="preview-copy">
-          Diese Seite ist eine eigenständige HTML-Datei. Sie benötigt keine
-          zusätzliche Installation und kann direkt als statische Website gehostet werden.
-        </p>
-        <div class="progress" aria-label="Projektfortschritt"><span></span></div>
-        <div class="status"><span>Grundgerüst erstellt</span><span>72%</span></div>
-      </aside>
-    </main>
-
-    <section class="features" id="funktionen" aria-label="Eigenschaften der Website">
-      <article class="feature">
-        <div class="feature-icon">✦</div>
-        <h3>Modernes Design</h3>
-        <p>Klare Typografie, sanfte Farbverläufe und ein Layout, das sich an unterschiedliche Bildschirmgrößen anpasst.</p>
-      </article>
-      <article class="feature">
-        <div class="feature-icon">⌘</div>
-        <h3>Einfacher Aufbau</h3>
-        <p>HTML und CSS liegen in einer Datei. Du kannst den Text und das Design später leicht verändern.</p>
-      </article>
-      <article class="feature">
-        <div class="feature-icon">↗</div>
-        <h3>Bereit zum Testen</h3>
-        <p>Lade die Datei bei deinem Hosting-Anbieter hoch und rufe die veröffentlichte Seite im Browser auf.</p>
-      </article>
-    </section>
-
-    <footer id="kontakt">
-      <span>© 2026 Mein Webprojekt</span>
-      <span>Erstellt als erste Hosting-Testseite</span>
-    </footer>
-  </div>
-</body>
-</html>
+<header><div class="container nav">
+<a class="brand" href="#start"><span class="mark">△</span> Meine Website</a>
+<nav aria-label="Hauptnavigation"><a class="active" href="#start">Start</a><a href="#ueber">Über mich</a><a href="#projekte">Projekte</a><a href="#funktionen">Funktionen</a><a href="#kontakt">Kontakt</a></nav>
+<button class="theme" id="theme" aria-label="Farbschema wechseln" aria-pressed="false">☀　◉　☾</button>
+</div></header>
+<main>
+<section class="hero" id="start"><div class="container hero-grid"><div>
+<div class="eyebrow">Ideen. Lernen. Umsetzen.</div><h1>Willkommen auf<br>meiner <span class="gradient">Testseite.</span></h1>
+<p class="lead">Hier experimentiere ich mit modernen Webdesigns, interaktiven Elementen und neuen Funktionen. Diese Seite ist mein persönliches Lernprojekt.</p>
+<div class="actions"><a class="btn primary" href="#ueber">↗ Mehr erfahren</a><a class="btn" href="#projekte">▷ Projekte ansehen</a></div>
+</div><aside class="clock"><div style="font-size:1.5rem">◷</div><small>Aktuelle Uhrzeit</small><div id="time">--:--:--</div><div id="date">Datum wird geladen …</div></aside></div></section>
+<section class="container cards" id="funktionen">
+<article class="card"><div class="icon">◉</div><div><h2>Modernes Design</h2><p>Wechsle zwischen hellem und dunklem Design und entdecke verschiedene Farblooks.</p></div></article>
+<article class="card"><div class="icon">&lt;/&gt;</div><div><h2>Interaktive Elemente</h2><p>Teste Animationen, Hover-Effekte und weitere Funktionen direkt im Browser.</p></div></article>
+<article class="card"><div class="icon">⚙</div><div><h2>Lernplattform</h2><p>Ich nutze diese Seite, um moderne Webtechnologien Schritt für Schritt kennenzulernen.</p></div></article>
+</section>
+<section class="container stats" id="projekte"><div class="stat"><strong>1+</strong><span>Testbesucher</span></div><div class="stat"><strong>3+</strong><span>Beispielbereiche</span></div><div class="stat"><strong>100%</strong><span>Motivation</span></div><div class="stat"><strong>∞</strong><span>Möglichkeiten</span></div></section>
+<section class="container about" id="ueber">
+<div class="visual" aria-label="Illustration eines Laptop-Bildschirms"><div class="laptop"><div class="screen"><div class="line"></div><div class="line short"></div><div class="line"></div><div class="screenbutton"></div></div><div class="base"></div></div></div>
+<div><div class="label">Über dieses Projekt</div><h2 class="section-title">Ein Ort zum <span class="gradient">Ausprobieren.</span></h2><p>Auf dieser Website teste ich verschiedene Designs, Funktionen und Layout-Ideen. Schritt für Schritt erweitere ich die Seite und lerne dabei moderne Webentwicklung kennen.</p><p style="margin-top:20px"><button class="btn primary" id="demo">Interaktion testen ↗</button></p></div>
+<div class="benefits"><div class="benefit"><div class="icon">✦</div><div><h3>Neue Ideen</h3><p>Ich probiere verschiedene Konzepte aus.</p></div></div><div class="benefit"><div class="icon">▥</div><div><h3>Sichtbare Fortschritte</h3><p>Jede Änderung wird nach dem Deployment online sichtbar.</p></div></div><div class="benefit"><div class="icon">♡</div><div><h3>Vielseitig einsetzbar</h3><p>Von einfachen Designs bis zu komplexeren Funktionen.</p></div></div></div>
+</section>
+</main>
+<footer class="container" id="kontakt"><span>© <span id="year"></span> Mein Webprojekt</span><span>Erstellt zum Lernen und Experimentieren</span></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const root=document.documentElement,themeBtn=document.getElementById('theme');
+const saved=localStorage.getItem('homepage-theme');if(saved==='light'||saved==='dark')root.dataset.theme=saved;
+themeBtn.setAttribute('aria-pressed',String(root.dataset.theme==='light'));
+themeBtn.addEventListener('click',()=>{const next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;localStorage.setItem('homepage-theme',next);themeBtn.setAttribute('aria-pressed',String(next==='light'));toast(next==='light'?'Hellmodus aktiviert.':'Dunkelmodus aktiviert.')});
+function clock(){const n=new Date();document.getElementById('time').textContent=n.toLocaleTimeString('de-DE');document.getElementById('date').textContent=n.toLocaleDateString('de-DE',{weekday:'long',day:'2-digit',month:'long',year:'numeric'});document.getElementById('year').textContent=n.getFullYear()}clock();setInterval(clock,1000);
+let timer;function toast(message){const t=document.getElementById('toast');t.textContent=message;t.classList.add('show');clearTimeout(timer);timer=setTimeout(()=>t.classList.remove('show'),2800)}
+document.getElementById('demo').addEventListener('click',()=>toast('Funktioniert! Du hast eine JavaScript-Interaktion ausgelöst.'));
+const links=[...document.querySelectorAll('nav a')];document.querySelectorAll('main section[id]').forEach(section=>new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-30% 0px -60% 0px'}).observe(section));
+</script>
+</body></html>
