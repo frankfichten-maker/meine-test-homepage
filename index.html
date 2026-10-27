@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Eine moderne Test-Startseite für mein erstes Webprojekt.">
+  <title>Meine Test-Startseite</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #0b1020;
+      --panel: rgba(255, 255, 255, 0.07);
+      --text: #f4f7fb;
+      --muted: #b6c1d3;
+      --accent: #76e4c2;
+      --accent-2: #8ba8ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 15% 10%, rgba(91, 120, 255, .22), transparent 35%),
+        radial-gradient(ellipse at 85% 25%, rgba(65, 220, 180, .13), transparent 32%),
+        var(--background);
+    }
+
+    a { color: inherit; }
+
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 25px 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 750;
+      letter-spacing: .2px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      color: #08131a;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      font-weight: 900;
+    }
+
+    nav { display: flex; gap: 25px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: .95rem; }
+    nav a:hover { color: var(--text); }
+
+    main {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      align-items: center;
+      gap: 55px;
+      padding: 95px 0 85px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 750;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px var(--accent);
+    }
+
+    h1 {
+      max-width: 700px;
+      margin: 20px 0;
+      font-size: clamp(2.8rem, 6.7vw, 5.4rem);
+      line-height: .99;
+      letter-spacing: -.065em;
+    }
+
+    h1 span {
+      color: transparent;
+      background: linear-gradient(100deg, var(--accent), var(--accent-2));
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .intro {
+      max-width: 570px;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 30px; }
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 0 19px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); border-color: var(--accent); }
+    .button.primary { color: #07131a; background: var(--accent); border-color: transparent; }
+
+    .preview {
+      position: relative;
+      padding: 25px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 25px;
+      background: var(--panel);
+      box-shadow: 0 25px 90px rgba(0,0,0,.25);
+      backdrop-filter: blur(16px);
+    }
+
+    .preview-top { display: flex; gap: 7px; padding-bottom: 22px; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .window-dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.35); }
+    .preview-label { margin: 23px 0 10px; color: var(--muted); font-size: .82rem; }
+    .preview h2 { margin: 0; font-size: 1.55rem; }
+    .preview-copy { color: var(--muted); line-height: 1.7; font-size: .94rem; }
+
+    .progress {
+      height: 8px;
+      margin: 23px 0 10px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: rgba(255,255,255,.1);
+    }
+
+    .progress span {
+      display: block;
+      width: 72%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .status { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); font-size: .82rem; }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 17px;
+      padding-bottom: 75px;
+    }
+
+    .feature {
+      padding: 23px;
+      border: 1px solid rgba(255,255,255,.11);
+      border-radius: 18px;
+      background: rgba(255,255,255,.035);
+    }
+
+    .feature-icon { font-size: 1.35rem; }
+    .feature h3 { margin: 15px 0 8px; }
+    .feature p { margin: 0; color: var(--muted); line-height: 1.65; font-size: .93rem; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 25px 0 35px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      font-size: .86rem;
+    }
+
+    @media (max-width: 760px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav { flex-wrap: wrap; gap: 18px; }
+      main { grid-template-columns: 1fr; gap: 35px; padding: 65px 0; }
+      .features { grid-template-columns: 1fr; padding-bottom: 50px; }
+      footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#start" aria-label="Zur Startseite" style="text-decoration:none">
+        <span class="brand-mark">M</span>
+        <span>Mein Webprojekt</span>
+      </a>
+      <nav aria-label="Hauptnavigation">
+        <a href="#start">Start</a>
+        <a href="#funktionen">Funktionen</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <main id="start">
+      <section>
+        <div class="eyebrow"><span class="dot"></span> Online · Testversion 1.0</div>
+        <h1>Eine Idee.<br><span>Neue Möglichkeiten.</span></h1>
+        <p class="intro">
+          Willkommen auf meiner ersten Test-Homepage. Hier probiere ich moderne
+          Webtechnologien aus und entwickle meine eigene Website Schritt für Schritt weiter.
+        </p>
+        <div class="actions">
+          <a class="button primary" href="#funktionen">Seite entdecken ↘</a>
+          <a class="button" href="#kontakt">Kontaktbereich</a>
+        </div>
+      </section>
+
+      <aside class="preview" aria-label="Projektstatus">
+        <div class="preview-top">
+          <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+        </div>
+        <p class="preview-label">MEIN ERSTES WEBPROJEKT</p>
+        <h2>Der Anfang ist gemacht.</h2>
+        <p class="preview-copy">
+          Diese Seite ist eine eigenständige HTML-Datei. Sie benötigt keine
+          zusätzliche Installation und kann direkt als statische Website gehostet werden.
+        </p>
+        <div class="progress" aria-label="Projektfortschritt"><span></span></div>
+        <div class="status"><span>Grundgerüst erstellt</span><span>72%</span></div>
+      </aside>
+    </main>
+
+    <section class="features" id="funktionen" aria-label="Eigenschaften der Website">
+      <article class="feature">
+        <div class="feature-icon">✦</div>
+        <h3>Modernes Design</h3>
+        <p>Klare Typografie, sanfte Farbverläufe und ein Layout, das sich an unterschiedliche Bildschirmgrößen anpasst.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">⌘</div>
+        <h3>Einfacher Aufbau</h3>
+        <p>HTML und CSS liegen in einer Datei. Du kannst den Text und das Design später leicht verändern.</p>
+      </article>
+      <article class="feature">
+        <div class="feature-icon">↗</div>
+        <h3>Bereit zum Testen</h3>
+        <p>Lade die Datei bei deinem Hosting-Anbieter hoch und rufe die veröffentlichte Seite im Browser auf.</p>
+      </article>
+    </section>
+
+    <footer id="kontakt">
+      <span>© 2026 Mein Webprojekt</span>
+      <span>Erstellt als erste Hosting-Testseite</span>
+    </footer>
+  </div>
+</body>
+</html>
