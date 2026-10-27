@@ -1,0 +1,46 @@
+{
+  "countries": [
+    {
+      "code": "DE",
+      "name": "Deutschland",
+      "flag": "🇩🇪",
+      "likes": 12,
+      "dislikes": 3
+    },
+    {
+      "code": "US",
+      "name": "USA",
+      "flag": "🇺🇸",
+      "likes": 8,
+      "dislikes": 5
+    },
+    {
+      "code": "FR",
+      "name": "Frankreich",
+      "flag": "🇫🇷",
+      "likes": 10,
+      "dislikes": 2
+    },
+    {
+      "code": "JP",
+      "name": "Japan",
+      "flag": "🇯🇵",
+      "likes": 15,
+      "dislikes": 4
+    },
+    {
+      "code": "IT",
+      "name": "Italien",
+      "flag": "🇮🇹",
+      "likes": 9,
+      "dislikes": 3
+    },
+    {
+      "code": "BR",
+      "name": "Brasilien",
+      "flag": "🇧🇷",
+      "likes": 7,
+      "dislikes": 6
+    }
+  ]
+}
